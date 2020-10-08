@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "./Table";
-/*Add import statement here*/
+import List from "./List";
 
 class App extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class App extends React.Component {
 
     this.state = {
       buttonClicked: "",
-      assignments: [] /*Below this line, add the students state variable*/,
+      assignments: [] /*Below this line, add the students state variable*/ ,
       grades: {}
     };
 
@@ -42,11 +42,13 @@ class App extends React.Component {
       grades[assignmentName] = {};
     }
     grades[assignmentName][studentName] = score;
-    this.setState({ grades: grades });
+    this.setState({
+      grades: grades
+    });
   }
 
   render() {
-    let tabChoice = <div />;
+    let tabChoice = < div / > ;
 
     /*Uncomment below to render assignments*/
     /*if (this.state.buttonClicked === "assignments") {
@@ -85,37 +87,43 @@ class App extends React.Component {
       );
     }*/
 
-    return (
-      <div>
-        <div className="Box Box--spacious f4">
-          <div className="Box-header">
-            <h3 className="Box-title d-flex flex-justify-center">GradeBook</h3>
-          </div>
-        </div>
-        <nav className="UnderlineNav d-flex flex-justify-center">
-          <div className="UnderlineNav-body pt-6">
-            <button
-              className="btn btn-primary"
-              onClick={() => this.handleButtonClicked("assignments")}
-            >
-              Assignments
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={() => this.handleButtonClicked("students")}
-            >
-              Students
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={() => this.handleButtonClicked("grades")}
-            >
-              Grades
-            </button>
-          </div>
-        </nav>
-        {tabChoice}
-      </div>
+    return ( <
+      div >
+      <
+      div className = "Box Box--spacious f4" >
+      <
+      div className = "Box-header" >
+      <
+      h3 className = "Box-title d-flex flex-justify-center" > GradeBook < /h3> <
+      /div> <
+      /div> <
+      nav className = "UnderlineNav d-flex flex-justify-center" >
+      <
+      div className = "UnderlineNav-body pt-6" >
+      <
+      button className = "btn btn-primary"
+      onClick = {
+        () => this.handleButtonClicked("assignments")
+      } >
+      Assignments <
+      /button> <
+      button className = "btn btn-primary"
+      onClick = {
+        () => this.handleButtonClicked("students")
+      } >
+      Students <
+      /button> <
+      button className = "btn btn-primary"
+      onClick = {
+        () => this.handleButtonClicked("grades")
+      } >
+      Grades <
+      /button> <
+      /div> <
+      /nav> {
+        tabChoice
+      } <
+      /div>
     );
   }
 }
